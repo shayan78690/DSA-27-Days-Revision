@@ -1,0 +1,21 @@
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int i = 1; i <= numRows; i++) {
+            ans.add(func(i));
+        }
+        return ans;
+    }
+
+    public List<Integer> func(int row) {
+        List<Integer> temp = new ArrayList<>();
+        long res = 1;
+        temp.add((int) res);
+        for (int j = 1; j < row; j++) {
+            res *= (row - j);
+            res /= (j);
+            temp.add((int) res);
+        }
+        return temp;
+    }
+}
