@@ -1,0 +1,18 @@
+class Solution {
+
+    public List<Integer> getRow(int rowIndex) {
+        List<Integer> list = new ArrayList<>();
+        func(rowIndex+1, list);
+        return list;
+    }
+
+    public void func(int rowIndex, List<Integer> list) {
+        long res = 1;
+        list.add(1);
+        for(int i = 1; i < rowIndex; i++) {
+            res *= (rowIndex-i);
+            res /= i;
+            list.add((int)res);
+        }
+    }
+}
